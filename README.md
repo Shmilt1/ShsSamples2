@@ -18,4 +18,4 @@ If you want to help me with developing and showcasing samples, feel free to do s
 Please do not use the provided samples on anyone without explicit permission ⚠️. This repository is ONLY provided for the study of malware and should NEVER be used illegaly or without permission!
 
 ## License
-This repository is licensed under the Zlib License, for more info read [README.txt](README.txt).
+This repository is licensed under the Zlib License, for more info read [LICENSE.txt](LICENSE.txt).
