@@ -7,7 +7,7 @@
     #include<stdio.h>
     static void DEBUG_PRINT(const char *msg) 
     {
-        fprintf(stdout, "[DEBUG] %s\n", msg);
+        fprintf(stdout, "[DEBUG] %s : Error Code %ld\n", msg, GetLastError());
     }
 #endif
 
