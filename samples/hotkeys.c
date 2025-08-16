@@ -37,7 +37,13 @@ int main(void)
     for (int i = 0x08; i < 0xFE; i++) 
     {
         vk_id_map[i] = j;
-        RegisterHotKey(NULL, j, 0, i);
+        if (!RegisterHotKey(NULL, j, 0, i)) 
+        {
+            #ifdef DEBUG
+                DEBUG_PRINT("Failed to register specified virtual key!");
+            #endif
+            continue;
+        }
         j++;
     }
 
@@ -54,9 +60,21 @@ int main(void)
         {
             BYTE vkKey = (BYTE)HIWORD(msg.lParam);
             
-            UnregisterHotKey(NULL, vk_id_map[vkKey]);
+            if (!UnregisterHotKey(NULL, vk_id_map[vkKey])) 
+            {
+                #ifdef DEBUG
+                    DEBUG_PRINT("Failed to unregister specified virtual key!");
+                #endif
+                continue;
+            }
             SendKey(vkKey);
-            RegisterHotKey(NULL, vk_id_map[vkKey], 0, vkKey);
+            if (!RegisterHotKey(NULL, vk_id_map[vkKey], 0, vkKey)) 
+            {
+                #ifdef DEBUG
+                    DEBUG_PRINT("Failed to register specified virtual key!");
+                #endif
+                continue;
+            }
 
             UINT vScnKey = MapVirtualKeyA(vkKey, MAPVK_VK_TO_VSC);
             UINT extended = 0;
